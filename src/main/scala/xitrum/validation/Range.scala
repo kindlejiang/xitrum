@@ -8,13 +8,13 @@ object Range {
 }
 
 class Range(min: Double, max: Double) extends Validator {
-  def render(action: Action, elem: Elem, paramName: String, secureParamName: String): Elem = {
+  def render(action: Action, elem: Elem, paramName: String): Elem = {
     import action._
-    jsAddToView(js$name(secureParamName) + ".rules('add', {range: [" + min + ", " + max + "]})")
+    jsAddToView(js$name(paramName) + ".rules('add', {range: [" + min + ", " + max + "]})")
     elem
   }
 
-  def validate(action: Action, paramName: String, secureParamName: String): Boolean = {
+  def validate(action: Action, paramName: String): Boolean = {
     try {
       val value = action.param(paramName).trim.toInt
       min <= value && value <= max

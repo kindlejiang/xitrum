@@ -1,15 +1,20 @@
 package xitrum.scope.request
 
+import scala.collection.mutable.{Map => MMap}
+
 import xitrum.Config
 import xitrum.Action
 import xitrum.scope.session.CSRF
+import xitrum.validation.Validators
 
 trait ExtEnv extends RequestEnv with ParamAccess with CSRF {
   this: Action =>
 
-  // The below are not always accessed by framwork/application, thus set to lazy
+  // The below are not always accessed by framework/application, thus set to lazy
 
   lazy val at = new At
+
+  lazy val validators = MMap[String, Validators]()
 
   // Avoid encoding, decoding when cookies/session is not touched by the application
   private var sessionTouched = false

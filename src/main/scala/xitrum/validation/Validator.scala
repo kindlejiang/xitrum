@@ -4,8 +4,8 @@ import scala.xml.Elem
 import xitrum.Action
 
 trait Validator extends Serializable {
-  def render(action: Action, elem: Elem, paramName: String, secureParamName: String): Elem
-  def validate(action: Action, paramName: String, secureParamName: String): Boolean
+  def render(action: Action, elem: Elem, paramName: String): Elem
+  def validate(action: Action, paramName: String): Boolean
 
   //----------------------------------------------------------------------------
 

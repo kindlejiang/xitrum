@@ -8,7 +8,6 @@ import xitrum.{Action, Config}
 import xitrum.etag.Etag
 import xitrum.routing.{PostbackAction, Routes}
 import xitrum.scope.session.SecureBase64
-import xitrum.validation.ValidatorInjector
 
 trait UrlFor {
   this: Action =>
@@ -37,14 +36,12 @@ trait UrlFor {
   def urlForPostback[T: Manifest](extraParams: (String, Any)*): String = {
     val actionClass = manifest[T].erasure.asInstanceOf[Class[Action]]
     val url = urlForPostbackAction(actionClass)
-    registerExtraParams(url, extraParams)
     url
   }
 
   def urlForPostbackThis(extraParams: (String, Any)*) = {
     val actionClass = this.getClass.asInstanceOf[Class[Action]]
     val url = urlForPostbackAction(actionClass)
-    registerExtraParams(url, extraParams)
     url
   }
 
@@ -77,21 +74,5 @@ trait UrlFor {
       case Etag.Small(bytes, etag, mimeo, gzipped) => etag
     }
     Config.baseUri + "/resources/public/" + path + "?" + forceReload
-  }
-
-  //----------------------------------------------------------------------------
-
-  private def registerExtraParams(url: String, extraParams: Iterable[(String, Any)]) {
-    if (extraParams.isEmpty) return
-
-    val e = new QueryStringEncoder("")
-    extraParams.foreach { case (paramName, value) =>
-      val secureParamName = ValidatorInjector.injectToParamName(paramName)
-      e.addParam(secureParamName, value.toString)
-    }
-
-    val withLeadingQuestionMark    = e.toString  // ?p1=v1&p2=v2
-    val withoutLeadingQuestionMark = withLeadingQuestionMark.substring(1)
-    jsAddToView("$(\"[action='" + url + "']\").data(\"extra\", '" + withoutLeadingQuestionMark + "')")
   }
 }

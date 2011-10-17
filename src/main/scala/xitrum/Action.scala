@@ -6,7 +6,7 @@ import scala.xml.Elem
 import xitrum.action._
 import xitrum.handler.up.Dispatcher
 import xitrum.scope.request.ExtEnv
-import xitrum.validation.{Validator, ValidatorInjector}
+import xitrum.validation.Validator
 import xitrum.view.Renderer
 
 trait Action extends ExtEnv with Logger with Net with Filter with BasicAuthentication with Redirect with UrlFor with Renderer with I18n {

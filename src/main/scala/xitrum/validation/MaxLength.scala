@@ -8,13 +8,13 @@ object MaxLength {
 }
 
 class MaxLength(length: Int) extends Validator {
-  def render(action: Action, elem: Elem, paramName: String, secureParamName: String): Elem = {
+  def render(action: Action, elem: Elem, paramName: String): Elem = {
     import action._
-    jsAddToView(js$name(secureParamName) + ".rules('add', {maxlength: " + length + "})")
+    jsAddToView(js$name(paramName) + ".rules('add', {maxlength: " + length + "})")
     elem
   }
 
-  def validate(action: Action, paramName: String, secureParamName: String): Boolean = {
+  def validate(action: Action, paramName: String): Boolean = {
     val value = action.param(paramName).trim
     value.length <= length
   }

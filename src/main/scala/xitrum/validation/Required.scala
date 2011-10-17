@@ -5,9 +5,9 @@ import xitrum.Action
 
 /** Class "required" will be added to the element. */
 object Required extends Validator {
-  def render(action: Action, elem: Elem, paramName: String, secureParamName: String): Elem = {
+  def render(action: Action, elem: Elem, paramName: String): Elem = {
     import action._
-    jsAddToView(js$name(secureParamName) + ".rules('add', {required: true})")
+    jsAddToView(js$name(paramName) + ".rules('add', {required: true})")
 
     // jQuery Validation plugin does not automatically adds class "required"
     val klass1 = (elem \ "@class").text
@@ -15,7 +15,7 @@ object Required extends Validator {
     elem % Attribute(None, "class", Text(klass2), Null)
   }
 
-  def validate(action: Action, paramName: String, secureParamName: String): Boolean = {
+  def validate(action: Action, paramName: String): Boolean = {
     val value = action.param(paramName).trim
     !value.isEmpty
   }
