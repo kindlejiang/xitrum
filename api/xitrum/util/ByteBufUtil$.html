@@ -2,9 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
         <head>
-          <title>ByteBufToBytes - xitrum.util.ByteBufToBytes</title>
-          <meta name="description" content="ByteBufToBytes - xitrum.util.ByteBufToBytes" />
-          <meta name="keywords" content="ByteBufToBytes xitrum.util.ByteBufToBytes" />
+          <title>ByteBufUtil - xitrum.util.ByteBufUtil</title>
+          <meta name="description" content="ByteBufUtil - xitrum.util.ByteBufUtil" />
+          <meta name="keywords" content="ByteBufUtil xitrum.util.ByteBufUtil" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -12,7 +12,7 @@
       <script type="text/javascript">
          if(top === self) {
             var url = '../../index.html';
-            var hash = 'xitrum.util.ByteBufToBytes$';
+            var hash = 'xitrum.util.ByteBufUtil$';
             var anchor = window.location.hash;
             var anchor_opt = '';
             if (anchor.length >= 1)
@@ -26,7 +26,7 @@
       <div id="definition">
         <img src="../../lib/object_big.png" />
         <p id="owner"><a href="../package.html" class="extype" name="xitrum">xitrum</a>.<a href="package.html" class="extype" name="xitrum.util">util</a></p>
-        <h1>ByteBufToBytes</h1>
+        <h1>ByteBufUtil</h1>
       </div>
 
       <h4 id="signature" class="signature">
@@ -35,7 +35,7 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <span class="name">ByteBufToBytes</span>
+        <span class="name">ByteBufUtil</span>
       </span>
       </h4>
       
@@ -59,7 +59,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="xitrum.util.ByteBufToBytes"><span>ByteBufToBytes</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="xitrum.util.ByteBufUtil"><span>ByteBufUtil</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -150,19 +150,6 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="xitrum.util.ByteBufToBytes#apply" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="apply(byteBuf:io.netty.buffer.ByteBuf):Array[Byte]"></a>
-      <a id="apply(ByteBuf):Array[Byte]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">apply</span><span class="params">(<span name="byteBuf">byteBuf: <span class="extype" name="io.netty.buffer.ByteBuf">ByteBuf</span></span>)</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Byte">Byte</span>]</span>
-      </span>
-      </h4>
-      
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -331,6 +318,19 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="xitrum.util.ByteBufUtil#toBytes" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="toBytes(byteBuf:io.netty.buffer.ByteBuf):Array[Byte]"></a>
+      <a id="toBytes(ByteBuf):Array[Byte]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toBytes</span><span class="params">(<span name="byteBuf">byteBuf: <span class="extype" name="io.netty.buffer.ByteBuf">ByteBuf</span></span>)</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Byte">Byte</span>]</span>
+      </span>
+      </h4>
+      
     </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toString():String"></a>
       <a id="toString():String"></a>
@@ -401,6 +401,19 @@
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="xitrum.util.ByteBufUtil#writeComposite" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="writeComposite(compositeBuf:io.netty.buffer.ByteBuf,component:io.netty.buffer.ByteBuf):Unit"></a>
+      <a id="writeComposite(ByteBuf,ByteBuf):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">writeComposite</span><span class="params">(<span name="compositeBuf">compositeBuf: <span class="extype" name="io.netty.buffer.ByteBuf">ByteBuf</span></span>, <span name="component">component: <span class="extype" name="io.netty.buffer.ByteBuf">ByteBuf</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
     </li></ol>
             </div>
 

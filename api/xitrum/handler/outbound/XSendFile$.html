@@ -370,19 +370,33 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="xitrum.handler.outbound.XSendFile#sendFile" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="sendFile(ctx:io.netty.channel.ChannelHandlerContext,env:xitrum.handler.HandlerEnv,promise:io.netty.channel.ChannelPromise,request:io.netty.handler.codec.http.FullHttpRequest,response:xitrum.scope.request.ReplaceableFullHttpResponse,path:String,noLog:Boolean):Unit"></a>
-      <a id="sendFile(ChannelHandlerContext,HandlerEnv,ChannelPromise,FullHttpRequest,ReplaceableFullHttpResponse,String,Boolean):Unit"></a>
+    </li><li name="xitrum.handler.outbound.XSendFile#removeHeaders" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="removeHeaders(response:io.netty.handler.codec.http.FullHttpResponse):Unit"></a>
+      <a id="removeHeaders(FullHttpResponse):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">sendFile</span><span class="params">(<span name="ctx">ctx: <span class="extype" name="io.netty.channel.ChannelHandlerContext">ChannelHandlerContext</span></span>, <span name="env">env: <a href="../HandlerEnv.html" class="extype" name="xitrum.handler.HandlerEnv">HandlerEnv</a></span>, <span name="promise">promise: <span class="extype" name="io.netty.channel.ChannelPromise">ChannelPromise</span></span>, <span name="request">request: <span class="extype" name="io.netty.handler.codec.http.FullHttpRequest">FullHttpRequest</span></span>, <span name="response">response: <a href="../../scope/request/ReplaceableFullHttpResponse.html" class="extype" name="xitrum.scope.request.ReplaceableFullHttpResponse">ReplaceableFullHttpResponse</a></span>, <span name="path">path: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="noLog">noLog: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">removeHeaders</span><span class="params">(<span name="response">response: <span class="extype" name="io.netty.handler.codec.http.FullHttpResponse">FullHttpResponse</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
-      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">path</dt><dd class="cmt"><p>see Renderer#renderFile</p></dd></dl></div>
+      <p class="shortcomment cmt">Removes non-standard headers, specific to this handler, to avoid leaking
+information to the remote client.</p>
+    </li><li name="xitrum.handler.outbound.XSendFile#sendFile" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="sendFile(ctx:io.netty.channel.ChannelHandlerContext,env:xitrum.handler.HandlerEnv,promise:io.netty.channel.ChannelPromise):Unit"></a>
+      <a id="sendFile(ChannelHandlerContext,HandlerEnv,ChannelPromise):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">sendFile</span><span class="params">(<span name="ctx">ctx: <span class="extype" name="io.netty.channel.ChannelHandlerContext">ChannelHandlerContext</span></span>, <span name="env">env: <a href="../HandlerEnv.html" class="extype" name="xitrum.handler.HandlerEnv">HandlerEnv</a></span>, <span name="promise">promise: <span class="extype" name="io.netty.channel.ChannelPromise">ChannelPromise</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt"></p>
     </li><li name="xitrum.handler.outbound.XSendFile#set404Page" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="set404Page(response:io.netty.handler.codec.http.FullHttpResponse,fromController:Boolean):Unit"></a>
       <a id="set404Page(FullHttpResponse,Boolean):Unit"></a>
