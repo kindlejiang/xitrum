@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Action and view &mdash; Xitrum 3.0 documentation</title>
+    <title>Action and view &mdash; Xitrum 3.1 documentation</title>
     
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -15,7 +15,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '3.0',
+        VERSION:     '3.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Xitrum 3.0 documentation" href="index.html" />
+    <link rel="top" title="Xitrum 3.1 documentation" href="index.html" />
     <link rel="next" title="RESTful APIs" href="restful.html" />
     <link rel="prev" title="Development flow with SBT, Eclipse/IntelliJ IDEA, and JRebel" href="dev.html" /> 
   </head>
@@ -41,7 +41,7 @@
         <li class="right" >
           <a href="dev.html" title="Development flow with SBT, Eclipse/IntelliJ IDEA, and JRebel"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Xitrum 3.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Xitrum 3.1 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -189,8 +189,6 @@ should be put at layout&#8217;s bottom.</li>
 <p>In templates you can use all methods of the class <a class="reference external" href="https://github.com/ngocdaothanh/xitrum/blob/master/src/main/scala/xitrum/Action.scala">xitrum.Action</a>.
 Also, you can use utility methods provided by Scalate like <tt class="docutils literal"><span class="pre">unescape</span></tt>.
 See the <a class="reference external" href="http://scalate.fusesource.org/documentation/index.html">Scalate doc</a>.</p>
-<p>If you want to have exactly instance of the current action, cast <tt class="docutils literal"><span class="pre">currentAction</span></tt> to
-the action you wish.</p>
 <p>The default Scalate template type is <a class="reference external" href="http://scalate.fusesource.org/documentation/jade.html">Jade</a>.
 You can also use <a class="reference external" href="http://scalate.fusesource.org/documentation/mustache.html">Mustache</a>,
 <a class="reference external" href="http://scalate.fusesource.org/documentation/scaml-reference.html">Scaml</a>, or
@@ -200,6 +198,21 @@ of your Xitrum application.</p>
 <p>You can override the default template type by passing &#8220;jade&#8221;, &#8220;mustache&#8221;, &#8220;scamal&#8221;,
 or &#8220;ssp&#8221; to <cite>respondView</cite>.</p>
 <div class="highlight-python"><pre>respondView(Map("type" -&gt;"mustache"))</pre>
+</div>
+<div class="section" id="type-casting-currentaction">
+<h3>Type casting currentAction<a class="headerlink" href="#type-casting-currentaction" title="Permalink to this headline">¶</a></h3>
+<p>If you want to have exactly instance of the current action, cast <tt class="docutils literal"><span class="pre">currentAction</span></tt> to
+the action you wish.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">p</span><span class="o">=</span> <span class="n">currentAction</span><span class="o">.</span><span class="n">asInstanceOf</span><span class="p">[</span><span class="n">MyAction</span><span class="p">]</span><span class="o">.</span><span class="n">hello</span><span class="p">(</span><span class="s">&quot;World&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you have multiple lines like above, you can cast only one time:</p>
+<div class="highlight-python"><pre>- val myAction = currentAction.asInstanceOf[MyAction]; import myAction._
+
+p= hello("World")
+p= hello("Scala")
+p= hello("Xitrum")</pre>
+</div>
 </div>
 <div class="section" id="id1">
 <h3>Mustache<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
@@ -400,6 +413,7 @@ scr/main/scalate/mypackage/MyAction/_myfragment.jade:</p>
 <li><a class="reference internal" href="#actor-action">Actor action</a></li>
 <li><a class="reference internal" href="#respond-to-client">Respond to client</a></li>
 <li><a class="reference internal" href="#respond-template-view-file">Respond template view file</a><ul>
+<li><a class="reference internal" href="#type-casting-currentaction">Type casting currentAction</a></li>
 <li><a class="reference internal" href="#id1">Mustache</a></li>
 <li><a class="reference internal" href="#coffeescript">CoffeeScript</a></li>
 </ul>
@@ -455,7 +469,7 @@ scr/main/scalate/mypackage/MyAction/_myfragment.jade:</p>
         <li class="right" >
           <a href="dev.html" title="Development flow with SBT, Eclipse/IntelliJ IDEA, and JRebel"
              >previous</a> |</li>
-        <li><a href="index.html">Xitrum 3.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Xitrum 3.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
