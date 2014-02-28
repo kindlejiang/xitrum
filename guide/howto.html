@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>HOWTO &mdash; Xitrum 3.1 documentation</title>
+    <title>HOWTO &mdash; Xitrum 3.2 documentation</title>
     
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -15,7 +15,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '3.1',
+        VERSION:     '3.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Xitrum 3.1 documentation" href="index.html" />
+    <link rel="top" title="Xitrum 3.2 documentation" href="index.html" />
     <link rel="next" title="Netty handlers" href="handler.html" />
     <link rel="prev" title="Clustering with Akka and Hazelcast" href="cluster.html" /> 
   </head>
@@ -41,7 +41,7 @@
         <li class="right" >
           <a href="cluster.html" title="Clustering with Akka and Hazelcast"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Xitrum 3.1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Xitrum 3.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -264,6 +264,15 @@ val children = config.getStringList("children")</pre>
 </div>
 </div>
 </div>
+<div class="section" id="serialize-and-deserialize">
+<h2>Serialize and deserialize<a class="headerlink" href="#serialize-and-deserialize" title="Permalink to this headline">¶</a></h2>
+<p>To serialize to <tt class="docutils literal"><span class="pre">Array[Byte]</span></tt>:</p>
+<div class="highlight-python"><pre>val bytes = SeriDeseri.toBytes("my serializable object")</pre>
+</div>
+<p>To deserialize bytes back:</p>
+<div class="highlight-python"><pre>val option = SeriDeseri.fromBytes[MyType](bytes)  // Option[MyType]</pre>
+</div>
+</div>
 <div class="section" id="encrypt-data">
 <h2>Encrypt data<a class="headerlink" href="#encrypt-data" title="Permalink to this headline">¶</a></h2>
 <p>To encrypt data that you don&#8217;t need to decrypt later (one way encryption),
@@ -271,38 +280,42 @@ you can use MD5 or something like that.</p>
 <p>If you want to decrypt later, you can use the utility Xitrum provides:</p>
 <div class="highlight-python"><pre>import xitrum.util.Secure
 
-val encrypted: Array[Byte]         = Secure.encrypt("my data".getBytes)
-val decrypted: Option[Array[Byte]] = Secure.decrypt(encrypted)</pre>
+// Array[Byte]
+val encrypted = Secure.encrypt("my data".getBytes)
+
+// Option[Array[Byte]]
+val decrypted = Secure.decrypt(encrypted)</pre>
 </div>
 <p>You can use <tt class="docutils literal"><span class="pre">xitrum.util.UrlSafeBase64</span></tt> to encode and decode the binary data to
 normal string (to embed to HTML for response etc.).</p>
-<p>If you can combine the above operations in one step:</p>
-<div class="highlight-python"><pre>import xitrum.util.SecureUrlSafeBase64
+<div class="highlight-python"><pre>// String that can be included in URL, cookie etc.
+val string = UrlSafeBase64.noPaddingEncode(encrypted)
 
-val encrypted = SecureUrlSafeBase64.encrypt(mySerializableObject)  // A String
-val decrypted = SecureUrlSafeBase64.decrypt(encrypted).asInstanceOf[Option[mySerializableClass]]</pre>
+// Option[Array[Byte]]
+val encrypted2 = UrlSafeBase64.autoPaddingDecode(string)</pre>
 </div>
-<p><tt class="docutils literal"><span class="pre">SecureUrlSafeBase64</span></tt> uses <a class="reference external" href="https://github.com/twitter/chill">Twitter Chill</a>
-to serialize and deserialize. Your data must be serializable.</p>
-<p>You can specify a key for encryption:</p>
-<div class="highlight-python"><pre>val encrypted = Secure.encrypt("my data".getBytes, "my key")
-val decrypted = Secure.decrypt(encrypted, "my key")
+<p>If you can combine the above operations in one step:</p>
+<div class="highlight-python"><pre>import xitrum.util.SeriDeseri
 
-val encrypted = SecureUrlSafeBase64.encrypt(mySerializableObject, "my key")
-val decrypted = SecureUrlSafeBase64.decrypt(encrypted, "my key").asInstanceOf[Option[mySerializableClass]]</pre>
+val mySerializableObject = new MySerializableClass
+
+// String
+val encrypted = SeriDeseri.toSecureUrlSafeBase64(mySerializableObject)
+
+// Option[MySerializableClass]
+val decrypted = SeriDeseri.fromSecureUrlSafeBase64[MySerializableClass](encrypted)</pre>
+</div>
+<p><tt class="docutils literal"><span class="pre">SeriDeseri</span></tt> uses <a class="reference external" href="https://github.com/twitter/chill">Twitter Chill</a>
+to serialize and deserialize. Your data must be serializable.</p>
+<p>You can specify a key for encryption.</p>
+<div class="highlight-python"><pre>val encrypted = Secure.encrypt("my data".getBytes, "my key")
+val decrypted = Secure.decrypt(encrypted, "my key")</pre>
+</div>
+<div class="highlight-python"><pre>val encrypted = SeriDeseri.toSecureUrlSafeBase64(mySerializableObject, "my key")
+val decrypted = SeriDeseri.fromSecureUrlSafeBase64[MySerializableClass](encrypted, "my key")</pre>
 </div>
 <p>If no key is specified, <tt class="docutils literal"><span class="pre">secureKey</span></tt> in xitrum.conf file in config directory
-is used.</p>
-</div>
-<div class="section" id="serialize-and-deserialize">
-<h2>Serialize and deserialize<a class="headerlink" href="#serialize-and-deserialize" title="Permalink to this headline">¶</a></h2>
-<p>To serialize to Array[Byte]:</p>
-<div class="highlight-python"><pre>import xitrum.util.SeriDeseri
-val bytes = SeriDeseri.serialize("my serializable object")</pre>
-</div>
-<p>To deserialize bytes back:</p>
-<div class="highlight-python"><pre>val option: Option[Any] = SeriDeseri.deserialize(bytes)</pre>
-</div>
+will be used.</p>
 </div>
 <div class="section" id="multiple-sites-at-the-same-domain-name">
 <h2>Multiple sites at the same domain name<a class="headerlink" href="#multiple-sites-at-the-same-domain-name" title="Permalink to this headline">¶</a></h2>
@@ -330,6 +343,25 @@ val html = Markdown("input")</pre>
 <p>Otherwise, you need to add this dependency to your project&#8217;s build.sbt:</p>
 <div class="highlight-python"><pre>libraryDependencies += "org.fusesource.scalamd" %% "scalamd" % "1.6"</pre>
 </div>
+</div>
+<div class="section" id="monitor-file-change">
+<h2>Monitor file change<a class="headerlink" href="#monitor-file-change" title="Permalink to this headline">¶</a></h2>
+<p>You can register callback(s) for
+<a class="reference external" href="http://docs.oracle.com/javase/7/docs/api/java/nio/file/StandardWatchEventKinds.html">StandardWatchEventKinds</a>
+on files or directories.</p>
+<div class="highlight-python"><pre>import xitrum.util.FileMonitor
+
+val target = FileMonitor.pathFromString("path_relative_to_application_root")
+FileMonitor.monitor(FileMonitor.MODIFY, target, { path =&gt;
+  // Do some callback with path
+  println(s"File modified: $path")
+
+  // And stop monitoring if necessary
+  FileMonitor.unmonitor(FileMonitor.MODIFY, target)
+})</pre>
+</div>
+<p>Under the hood, <tt class="docutils literal"><span class="pre">xitrum.util.FileMonitor</span></tt> uses
+<a class="reference external" href="https://github.com/lloydmeta/schwatcher">Schwatcher</a>.</p>
 </div>
 </div>
 
@@ -364,10 +396,11 @@ val html = Markdown("input")</pre>
 <li><a class="reference internal" href="#typesafe-config-file">Typesafe config file</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#encrypt-data">Encrypt data</a></li>
 <li><a class="reference internal" href="#serialize-and-deserialize">Serialize and deserialize</a></li>
+<li><a class="reference internal" href="#encrypt-data">Encrypt data</a></li>
 <li><a class="reference internal" href="#multiple-sites-at-the-same-domain-name">Multiple sites at the same domain name</a></li>
 <li><a class="reference internal" href="#convert-markdown-text-to-html">Convert Markdown text to HTML</a></li>
+<li><a class="reference internal" href="#monitor-file-change">Monitor file change</a></li>
 </ul>
 </li>
 </ul>
@@ -412,7 +445,7 @@ val html = Markdown("input")</pre>
         <li class="right" >
           <a href="cluster.html" title="Clustering with Akka and Hazelcast"
              >previous</a> |</li>
-        <li><a href="index.html">Xitrum 3.1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Xitrum 3.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
