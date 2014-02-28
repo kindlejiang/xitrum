@@ -39,8 +39,9 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>SecureBase64 is for preventing a user to mess with his own data to cheat the server.
-CSRF is for preventing a user to fake other user data.
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>SeriDeseri's to/fromSecureUrlSafeBase64 is for preventing a user to mess with
+his own data to cheat the server. CSRF is for preventing a user to fake other
+user's data.
 </p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
@@ -211,15 +212,15 @@ CSRF is for preventing a user to fake other user data.
               
         </dd></dl></div>
     </li><li name="xitrum.scope.session.Csrf#decrypt" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="decrypt(action:xitrum.Action,string:String):Any"></a>
-      <a id="decrypt(Action,String):Any"></a>
+      <a id="decrypt[T](action:xitrum.Action,string:String)(implicitm:Manifest[T]):Option[T]"></a>
+      <a id="decrypt[T](Action,String)(Manifest[T]):Option[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">decrypt</span><span class="params">(<span name="action">action: <a href="../../Action.html" class="extype" name="xitrum.Action">Action</a></span>, <span name="string">string: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Any">Any</span></span>
+        <span class="name">decrypt</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="action">action: <a href="../../Action.html" class="extype" name="xitrum.Action">Action</a></span>, <span name="string">string: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="m">m: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="xitrum.scope.session.Csrf.decrypt.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="xitrum.scope.session.Csrf.decrypt.T">T</span>]</span>
       </span>
       </h4>
       
@@ -237,7 +238,8 @@ CSRF is for preventing a user to fake other user data.
       </h4>
       <p class="shortcomment cmt">For encrypting things that need to embed the anti-CSRF token for more security.</p><div class="fullcomment"><div class="comment cmt"><p>For encrypting things that need to embed the anti-CSRF token for more security.
 (For example when using with GET requests, which does not include the token.)
-Otherwise you should use SecureBase64.encrypt for shorter result.
+Otherwise you should use SeriDeseri's to/fromSecureUrlSafeBase64 for shorter
+result.
 </p></div></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>

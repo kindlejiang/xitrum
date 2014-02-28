@@ -35,13 +35,13 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <span class="name">SeriDeseri</span><span class="result"> extends <a href="../Log.html" class="extype" name="xitrum.Log">Log</a></span>
+        <span class="name">SeriDeseri</span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><a href="../Log.html" class="extype" name="xitrum.Log">Log</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -59,7 +59,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="xitrum.util.SeriDeseri"><span>SeriDeseri</span></li><li class="in" name="xitrum.Log"><span>Log</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="xitrum.util.SeriDeseri"><span>SeriDeseri</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -182,19 +182,6 @@
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="xitrum.util.SeriDeseri#deserialize" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="deserialize(bytes:Array[Byte]):Option[Any]"></a>
-      <a id="deserialize(Array[Byte]):Option[Any]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">deserialize</span><span class="params">(<span name="bytes">bytes: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Byte">Byte</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Any">Any</span>]</span>
-      </span>
-      </h4>
-      
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>
@@ -240,6 +227,64 @@
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="xitrum.util.SeriDeseri#fromBytes" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="fromBytes[T](bytes:Array[Byte])(implicitm:Manifest[T]):Option[T]"></a>
+      <a id="fromBytes[T](Array[Byte])(Manifest[T]):Option[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">fromBytes</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="bytes">bytes: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Byte">Byte</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="m">m: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="xitrum.util.SeriDeseri.fromBytes.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="xitrum.util.SeriDeseri.fromBytes.T">T</span>]</span>
+      </span>
+      </h4>
+      
+    </li><li name="xitrum.util.SeriDeseri#fromJson" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="fromJson[T](jsonString:String)(implicitm:Manifest[T]):Option[T]"></a>
+      <a id="fromJson[T](String)(Manifest[T]):Option[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">fromJson</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="jsonString">jsonString: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="m">m: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="xitrum.util.SeriDeseri.fromJson.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="xitrum.util.SeriDeseri.fromJson.T">T</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Converts JSON to Scala object (case class, Map, Seq etc.</p><div class="fullcomment"><div class="comment cmt"><p>Converts JSON to Scala object (case class, Map, Seq etc.).
+If you want to do more complicated things, you should use JSON4S directly:
+https://github.com/json4s/json4s
+</p></div></div>
+    </li><li name="xitrum.util.SeriDeseri#fromSecureUrlSafeBase64" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="fromSecureUrlSafeBase64[T](base64String:String,key:String,forCookie:Boolean)(implicitm:Manifest[T]):Option[T]"></a>
+      <a id="fromSecureUrlSafeBase64[T](String,String,Boolean)(Manifest[T]):Option[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">fromSecureUrlSafeBase64</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="base64String">base64String: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="key">key: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="forCookie">forCookie: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="m">m: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="xitrum.util.SeriDeseri.fromSecureUrlSafeBase64.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="xitrum.util.SeriDeseri.fromSecureUrlSafeBase64.T">T</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">base64String</dt><dd class="cmt"><p>may contain optional padding (&quot;=&quot; characters)</p></dd><dt class="param">forCookie</dt><dd class="cmt"><p>If true, tries to GZIP uncompress if the input is compressed
+</p></dd></dl></div>
+    </li><li name="xitrum.util.SeriDeseri#fromSecureUrlSafeBase64" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="fromSecureUrlSafeBase64[T](base64String:String,forCookie:Boolean)(implicitm:Manifest[T]):Option[T]"></a>
+      <a id="fromSecureUrlSafeBase64[T](String,Boolean)(Manifest[T]):Option[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">fromSecureUrlSafeBase64</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="base64String">base64String: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="forCookie">forCookie: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="m">m: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="xitrum.util.SeriDeseri.fromSecureUrlSafeBase64.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="xitrum.util.SeriDeseri.fromSecureUrlSafeBase64.T">T</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Decrypts using the key in config/xitrum.</p><div class="fullcomment"><div class="comment cmt"><p>Decrypts using the key in config/xitrum.conf.
+Combination of Secure and UrlSafeBase64.
+</p></div></div>
     </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
       <a id="getClass():Class[_]"></a>
@@ -279,19 +324,6 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="xitrum.Log#log" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="log:org.slf4j.Logger"></a>
-      <a id="log:Logger"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">lazy val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">log</span><span class="result">: <span class="extype" name="org.slf4j.Logger">Logger</span></span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Log name is inferred from name of the class extending this trait.</p><div class="fullcomment"><div class="comment cmt"><p>Log name is inferred from name of the class extending this trait.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../Log.html" class="extype" name="xitrum.Log">Log</a></dd></dl></div>
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -331,19 +363,6 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="xitrum.util.SeriDeseri#serialize" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="serialize(any:Any):Array[Byte]"></a>
-      <a id="serialize(Any):Array[Byte]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">serialize</span><span class="params">(<span name="any">any: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Byte">Byte</span>]</span>
-      </span>
-      </h4>
-      
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -357,6 +376,67 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="xitrum.util.SeriDeseri#toBytes" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="toBytes(any:Any):Array[Byte]"></a>
+      <a id="toBytes(Any):Array[Byte]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toBytes</span><span class="params">(<span name="any">any: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Byte">Byte</span>]</span>
+      </span>
+      </h4>
+      
+    </li><li name="xitrum.util.SeriDeseri#toJson" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toJson(scalaObject:AnyRef):String"></a>
+      <a id="toJson(AnyRef):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toJson</span><span class="params">(<span name="scalaObject">scalaObject: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Converts Scala object (case class, Map, Seq etc.</p><div class="fullcomment"><div class="comment cmt"><p>Converts Scala object (case class, Map, Seq etc.) to JSON.
+If you want to do more complicated things, you should use JSON4S directly:
+https://github.com/json4s/json4s
+</p></div></div>
+    </li><li name="xitrum.util.SeriDeseri#toSecureUrlSafeBase64" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toSecureUrlSafeBase64(any:Any,key:String,forCookie:Boolean):String"></a>
+      <a id="toSecureUrlSafeBase64(Any,String,Boolean):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toSecureUrlSafeBase64</span><span class="params">(<span name="any">any: <span class="extype" name="scala.Any">Any</span></span>, <span name="key">key: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="forCookie">forCookie: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">The result contains no padding (&quot;=&quot; characters) so that it can be used as
+request parameter name.</p><div class="fullcomment"><div class="comment cmt"><p>The result contains no padding (&quot;=&quot; characters) so that it can be used as
+request parameter name. (Netty POST body decoder prohibits &quot;=&quot; in parameter name.)</p><p>See http://en.wikipedia.org/wiki/Base_64#Padding
+</p></div><dl class="paramcmts block"><dt class="param">forCookie</dt><dd class="cmt"><p>If true, tries to GZIP compress if &gt; 4KB; the result may &gt; 4KB
+</p></dd></dl></div>
+    </li><li name="xitrum.util.SeriDeseri#toSecureUrlSafeBase64" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toSecureUrlSafeBase64(any:Any,forCookie:Boolean):String"></a>
+      <a id="toSecureUrlSafeBase64(Any,Boolean):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toSecureUrlSafeBase64</span><span class="params">(<span name="any">any: <span class="extype" name="scala.Any">Any</span></span>, <span name="forCookie">forCookie: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Encrypts using the key in config/xitrum.</p><div class="fullcomment"><div class="comment cmt"><p>Encrypts using the key in config/xitrum.conf.
+Combination of Secure and UrlSafeBase64.
+</p></div></div>
     </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toString():String"></a>
       <a id="toString():String"></a>
@@ -436,9 +516,7 @@
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="xitrum.Log">
-              <h3>Inherited from <a href="../Log.html" class="extype" name="xitrum.Log">Log</a></h3>
-            </div><div class="parent" name="scala.AnyRef">
+        <div class="parent" name="scala.AnyRef">
               <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
             </div><div class="parent" name="scala.Any">
               <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>

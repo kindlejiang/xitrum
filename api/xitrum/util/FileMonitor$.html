@@ -2,17 +2,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
         <head>
-          <title>NoPipelining - xitrum.handler.inbound.NoPipelining</title>
-          <meta name="description" content="NoPipelining - xitrum.handler.inbound.NoPipelining" />
-          <meta name="keywords" content="NoPipelining xitrum.handler.inbound.NoPipelining" />
+          <title>FileMonitor - xitrum.util.FileMonitor</title>
+          <meta name="description" content="FileMonitor - xitrum.util.FileMonitor" />
+          <meta name="keywords" content="FileMonitor xitrum.util.FileMonitor" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
-      <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
-      <link href="../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
       <script type="text/javascript">
          if(top === self) {
-            var url = '../../../index.html';
-            var hash = 'xitrum.handler.inbound.NoPipelining$';
+            var url = '../../index.html';
+            var hash = 'xitrum.util.FileMonitor$';
             var anchor = window.location.hash;
             var anchor_opt = '';
             if (anchor.length >= 1)
@@ -24,9 +24,9 @@
         </head>
         <body class="value">
       <div id="definition">
-        <a href="NoPipelining.html" title="Go to companion"><img src="../../../lib/object_to_class_big.png" /></a>
-        <p id="owner"><a href="../../package.html" class="extype" name="xitrum">xitrum</a>.<a href="../package.html" class="extype" name="xitrum.handler">handler</a>.<a href="package.html" class="extype" name="xitrum.handler.inbound">inbound</a></p>
-        <h1><a href="NoPipelining.html" title="Go to companion">NoPipelining</a></h1>
+        <img src="../../lib/object_big.png" />
+        <p id="owner"><a href="../package.html" class="extype" name="xitrum">xitrum</a>.<a href="package.html" class="extype" name="xitrum.util">util</a></p>
+        <h1>FileMonitor</h1>
       </div>
 
       <h4 id="signature" class="signature">
@@ -35,13 +35,13 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <span class="name">NoPipelining</span>
+        <span class="name">FileMonitor</span><span class="result"> extends <a href="../Log.html" class="extype" name="xitrum.Log">Log</a></span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><a href="../Log.html" class="extype" name="xitrum.Log">Log</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -59,7 +59,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="xitrum.handler.inbound.NoPipelining"><span>NoPipelining</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="xitrum.util.FileMonitor"><span>FileMonitor</span></li><li class="in" name="xitrum.Log"><span>Log</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -150,6 +150,45 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="xitrum.util.FileMonitor#CREATE" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CREATE:java.nio.file.WatchEvent.Kind[java.nio.file.Path]"></a>
+      <a id="CREATE:Kind[Path]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">CREATE</span><span class="result">: <span class="extype" name="java.nio.file.WatchEvent.Kind">Kind</span>[<span class="extype" name="java.nio.file.Path">Path</span>]</span>
+      </span>
+      </h4>
+      
+    </li><li name="xitrum.util.FileMonitor#DELETE" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DELETE:java.nio.file.WatchEvent.Kind[java.nio.file.Path]"></a>
+      <a id="DELETE:Kind[Path]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">DELETE</span><span class="result">: <span class="extype" name="java.nio.file.WatchEvent.Kind">Kind</span>[<span class="extype" name="java.nio.file.Path">Path</span>]</span>
+      </span>
+      </h4>
+      
+    </li><li name="xitrum.util.FileMonitor#MODIFY" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MODIFY:java.nio.file.WatchEvent.Kind[java.nio.file.Path]"></a>
+      <a id="MODIFY:Kind[Path]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">MODIFY</span><span class="result">: <span class="extype" name="java.nio.file.WatchEvent.Kind">Kind</span>[<span class="extype" name="java.nio.file.Path">Path</span>]</span>
+      </span>
+      </h4>
+      
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -175,7 +214,7 @@
         <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
       <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
@@ -220,7 +259,7 @@
         <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
       <span class="symbol">classOf[java.lang.Throwable]</span>
@@ -253,23 +292,6 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="xitrum.handler.inbound.NoPipelining#if_keepAliveRequest_then_resumeReading_else_closeOnComplete" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="if_keepAliveRequest_then_resumeReading_else_closeOnComplete(request:io.netty.handler.codec.http.HttpRequest,channel:io.netty.channel.Channel,channelFuture:io.netty.channel.ChannelFuture):Unit"></a>
-      <a id="if_keepAliveRequest_then_resumeReading_else_closeOnComplete(HttpRequest,Channel,ChannelFuture):Unit"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">if_keepAliveRequest_then_resumeReading_else_closeOnComplete</span><span class="params">(<span name="request">request: <span class="extype" name="io.netty.handler.codec.http.HttpRequest">HttpRequest</span></span>, <span name="channel">channel: <span class="extype" name="io.netty.channel.Channel">Channel</span></span>, <span name="channelFuture">channelFuture: <span class="extype" name="io.netty.channel.ChannelFuture">ChannelFuture</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Handle keep alive as long as there's the request contains
-'connection:Keep-Alive' header, no matter what the client is 1.</p><div class="fullcomment"><div class="comment cmt"><p>Handle keep alive as long as there's the request contains
-'connection:Keep-Alive' header, no matter what the client is 1.0 or 1.1:
-http://sockjs.github.com/sockjs-protocol/sockjs-protocol-0.3.3.html#section-157
-</p></div></div>
     </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <a id="isInstanceOf[T0]:Boolean"></a>
@@ -283,6 +305,45 @@ http://sockjs.github.com/sockjs-protocol/sockjs-protocol-0.3.3.html#section-157
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="xitrum.Log#log" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="log:org.slf4j.Logger"></a>
+      <a id="log:Logger"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">log</span><span class="result">: <span class="extype" name="org.slf4j.Logger">Logger</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Log name is inferred from name of the class extending this trait.</p><div class="fullcomment"><div class="comment cmt"><p>Log name is inferred from name of the class extending this trait.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../Log.html" class="extype" name="xitrum.Log">Log</a></dd></dl></div>
+    </li><li name="xitrum.util.FileMonitor#monitor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="monitor(event:java.nio.file.WatchEvent.Kind[java.nio.file.Path],path:java.nio.file.Path,callback:java.nio.file.Path=&gt;Unit*):Unit"></a>
+      <a id="monitor(Kind[Path],Path,(Path)⇒Unit*):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">monitor</span><span class="params">(<span name="event">event: <span class="extype" name="java.nio.file.WatchEvent.Kind">Kind</span>[<span class="extype" name="java.nio.file.Path">Path</span>]</span>, <span name="path">path: <span class="extype" name="java.nio.file.Path">Path</span></span>, <span name="callback">callback: (<span class="extype" name="java.nio.file.Path">Path</span>) ⇒ <span class="extype" name="scala.Unit">Unit</span>*</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="xitrum.util.FileMonitor#monitorRecursive" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="monitorRecursive(event:java.nio.file.WatchEvent.Kind[java.nio.file.Path],path:java.nio.file.Path,callback:java.nio.file.Path=&gt;Unit*):Unit"></a>
+      <a id="monitorRecursive(Kind[Path],Path,(Path)⇒Unit*):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">monitorRecursive</span><span class="params">(<span name="event">event: <span class="extype" name="java.nio.file.WatchEvent.Kind">Kind</span>[<span class="extype" name="java.nio.file.Path">Path</span>]</span>, <span name="path">path: <span class="extype" name="java.nio.file.Path">Path</span></span>, <span name="callback">callback: (<span class="extype" name="java.nio.file.Path">Path</span>) ⇒ <span class="extype" name="scala.Unit">Unit</span>*</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -322,29 +383,16 @@ http://sockjs.github.com/sockjs-protocol/sockjs-protocol-0.3.3.html#section-157
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="xitrum.handler.inbound.NoPipelining#pauseReading" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="pauseReading(channel:io.netty.channel.Channel):Unit"></a>
-      <a id="pauseReading(Channel):Unit"></a>
+    </li><li name="xitrum.util.FileMonitor#pathFromString" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="pathFromString(str:String):java.nio.file.Path"></a>
+      <a id="pathFromString(String):Path"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">pauseReading</span><span class="params">(<span name="channel">channel: <span class="extype" name="io.netty.channel.Channel">Channel</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      </h4>
-      
-    </li><li name="xitrum.handler.inbound.NoPipelining#resumeReading" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="resumeReading(channel:io.netty.channel.Channel):Unit"></a>
-      <a id="resumeReading(Channel):Unit"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">resumeReading</span><span class="params">(<span name="channel">channel: <span class="extype" name="io.netty.channel.Channel">Channel</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">pathFromString</span><span class="params">(<span name="str">str: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="java.nio.file.Path">Path</span></span>
       </span>
       </h4>
       
@@ -374,6 +422,32 @@ http://sockjs.github.com/sockjs-protocol/sockjs-protocol-0.3.3.html#section-157
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="xitrum.util.FileMonitor#unmonitor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="unmonitor(event:java.nio.file.WatchEvent.Kind[java.nio.file.Path],path:java.nio.file.Path):Unit"></a>
+      <a id="unmonitor(Kind[Path],Path):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">unmonitor</span><span class="params">(<span name="event">event: <span class="extype" name="java.nio.file.WatchEvent.Kind">Kind</span>[<span class="extype" name="java.nio.file.Path">Path</span>]</span>, <span name="path">path: <span class="extype" name="java.nio.file.Path">Path</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="xitrum.util.FileMonitor#unmonitorRecursive" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="unmonitorRecursive(event:java.nio.file.WatchEvent.Kind[java.nio.file.Path],path:java.nio.file.Path):Unit"></a>
+      <a id="unmonitorRecursive(Kind[Path],Path):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">unmonitorRecursive</span><span class="params">(<span name="event">event: <span class="extype" name="java.nio.file.WatchEvent.Kind">Kind</span>[<span class="extype" name="java.nio.file.Path">Path</span>]</span>, <span name="path">path: <span class="extype" name="java.nio.file.Path">Path</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <a id="wait():Unit"></a>
@@ -440,7 +514,9 @@ http://sockjs.github.com/sockjs-protocol/sockjs-protocol-0.3.3.html#section-157
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="scala.AnyRef">
+        <div class="parent" name="xitrum.Log">
+              <h3>Inherited from <a href="../Log.html" class="extype" name="xitrum.Log">Log</a></h3>
+            </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
             </div><div class="parent" name="scala.Any">
               <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
@@ -460,6 +536,6 @@ http://sockjs.github.com/sockjs-protocol/sockjs-protocol-0.3.3.html#section-157
       <div id="tooltip"></div>
 
       <div id="footer">  </div>
-      <script defer="defer" type="text/javascript" id="jquery-js" src="../../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../../lib/template.js"></script><script defer="defer" type="text/javascript" id="modernizr-custom-js" src="../../../lib/modernizr.custom.js"></script><script defer="defer" type="text/javascript" id="diagrams-js" src="../../../lib/diagrams.js"></script>
+      <script defer="defer" type="text/javascript" id="jquery-js" src="../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../lib/template.js"></script><script defer="defer" type="text/javascript" id="modernizr-custom-js" src="../../lib/modernizr.custom.js"></script><script defer="defer" type="text/javascript" id="diagrams-js" src="../../lib/diagrams.js"></script>
     </body>
       </html>

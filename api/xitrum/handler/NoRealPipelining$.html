@@ -2,9 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
         <head>
-          <title>SecureUrlSafeBase64 - xitrum.util.SecureUrlSafeBase64</title>
-          <meta name="description" content="SecureUrlSafeBase64 - xitrum.util.SecureUrlSafeBase64" />
-          <meta name="keywords" content="SecureUrlSafeBase64 xitrum.util.SecureUrlSafeBase64" />
+          <title>NoRealPipelining - xitrum.handler.NoRealPipelining</title>
+          <meta name="description" content="NoRealPipelining - xitrum.handler.NoRealPipelining" />
+          <meta name="keywords" content="NoRealPipelining xitrum.handler.NoRealPipelining" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -12,7 +12,7 @@
       <script type="text/javascript">
          if(top === self) {
             var url = '../../index.html';
-            var hash = 'xitrum.util.SecureUrlSafeBase64$';
+            var hash = 'xitrum.handler.NoRealPipelining$';
             var anchor = window.location.hash;
             var anchor_opt = '';
             if (anchor.length >= 1)
@@ -25,8 +25,8 @@
         <body class="value">
       <div id="definition">
         <img src="../../lib/object_big.png" />
-        <p id="owner"><a href="../package.html" class="extype" name="xitrum">xitrum</a>.<a href="package.html" class="extype" name="xitrum.util">util</a></p>
-        <h1>SecureUrlSafeBase64</h1>
+        <p id="owner"><a href="../package.html" class="extype" name="xitrum">xitrum</a>.<a href="package.html" class="extype" name="xitrum.handler">handler</a></p>
+        <h1>NoRealPipelining</h1>
       </div>
 
       <h4 id="signature" class="signature">
@@ -35,11 +35,20 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <span class="name">SecureUrlSafeBase64</span>
+        <span class="name">NoRealPipelining</span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Combination of Secure and UrlSafeBase64.</p></div><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>http://en.wikipedia.org/wiki/HTTP_pipelining</p><p>Xitrum does not support real pipelining. A client may send multiple requests,
+but Xitrum will not process them at concurrently. Xitrum will process one
+by one.</p><p>From Mongrel2 doc: http://mongrel2.org/manual/book-finalch6.html</p><p>&quot;Where problems come in is with pipe-lined requests, meaning a browser sends
+a bunch of requests in a big blast, then hangs out for all the responses.
+This was such a horrible stupid idea that pretty much everone gets it wrong
+and doesn't support it fully, if at all. The reason is it's much too easy to
+blast a server with a ton of request, wait a bit so they hit proxied backends,
+and then close the socket. The web server and the backends are now screwed
+having to handle these requests which will go nowhere.&quot;
+</p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
@@ -59,7 +68,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="xitrum.util.SecureUrlSafeBase64"><span>SecureUrlSafeBase64</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="xitrum.handler.NoRealPipelining"><span>NoRealPipelining</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -182,63 +191,6 @@
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="xitrum.util.SecureUrlSafeBase64#decrypt" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="decrypt(base64String:String,key:String,forCookie:Boolean):Option[Any]"></a>
-      <a id="decrypt(String,String,Boolean):Option[Any]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">decrypt</span><span class="params">(<span name="base64String">base64String: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="key">key: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="forCookie">forCookie: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Any">Any</span>]</span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">base64String</dt><dd class="cmt"><p>may contain optional padding (&quot;=&quot; characters)</p></dd><dt class="param">forCookie</dt><dd class="cmt"><p>If true, tries to GZIP uncompress if the input is compressed
-</p></dd></dl></div>
-    </li><li name="xitrum.util.SecureUrlSafeBase64#decrypt" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="decrypt(base64String:String,forCookie:Boolean):Option[Any]"></a>
-      <a id="decrypt(String,Boolean):Option[Any]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">decrypt</span><span class="params">(<span name="base64String">base64String: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="forCookie">forCookie: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Any">Any</span>]</span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Decrypts using the key in config/xitrum.</p><div class="fullcomment"><div class="comment cmt"><p>Decrypts using the key in config/xitrum.conf.</p></div></div>
-    </li><li name="xitrum.util.SecureUrlSafeBase64#encrypt" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="encrypt(any:Any,key:String,forCookie:Boolean):String"></a>
-      <a id="encrypt(Any,String,Boolean):String"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">encrypt</span><span class="params">(<span name="any">any: <span class="extype" name="scala.Any">Any</span></span>, <span name="key">key: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="forCookie">forCookie: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">The result contains no padding (&quot;=&quot; characters) so that it can be used as
-request parameter name.</p><div class="fullcomment"><div class="comment cmt"><p>The result contains no padding (&quot;=&quot; characters) so that it can be used as
-request parameter name. (Netty POST body decoder prohibits &quot;=&quot; in parameter name.)</p><p>See http://en.wikipedia.org/wiki/Base_64#Padding
-</p></div><dl class="paramcmts block"><dt class="param">forCookie</dt><dd class="cmt"><p>If true, tries to GZIP compress if &gt; 4KB; the result may &gt; 4KB
-</p></dd></dl></div>
-    </li><li name="xitrum.util.SecureUrlSafeBase64#encrypt" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="encrypt(any:Any,forCookie:Boolean):String"></a>
-      <a id="encrypt(Any,Boolean):String"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">encrypt</span><span class="params">(<span name="any">any: <span class="extype" name="scala.Any">Any</span></span>, <span name="forCookie">forCookie: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Encrypts using the key in config/xitrum.</p><div class="fullcomment"><div class="comment cmt"><p>Encrypts using the key in config/xitrum.conf.</p></div></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>
@@ -310,6 +262,23 @@ request parameter name. (Netty POST body decoder prohibits &quot;=&quot; in para
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="xitrum.handler.NoRealPipelining#if_keepAliveRequest_then_resumeReading_else_closeOnComplete" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="if_keepAliveRequest_then_resumeReading_else_closeOnComplete(request:io.netty.handler.codec.http.HttpRequest,channel:io.netty.channel.Channel,channelFuture:io.netty.channel.ChannelFuture):Unit"></a>
+      <a id="if_keepAliveRequest_then_resumeReading_else_closeOnComplete(HttpRequest,Channel,ChannelFuture):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">if_keepAliveRequest_then_resumeReading_else_closeOnComplete</span><span class="params">(<span name="request">request: <span class="extype" name="io.netty.handler.codec.http.HttpRequest">HttpRequest</span></span>, <span name="channel">channel: <span class="extype" name="io.netty.channel.Channel">Channel</span></span>, <span name="channelFuture">channelFuture: <span class="extype" name="io.netty.channel.ChannelFuture">ChannelFuture</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Handle keep alive as long as there's the request contains
+'connection:Keep-Alive' header, no matter what the client is 1.</p><div class="fullcomment"><div class="comment cmt"><p>Handle keep alive as long as there's the request contains
+'connection:Keep-Alive' header, no matter what the client is 1.0 or 1.1:
+http://sockjs.github.com/sockjs-protocol/sockjs-protocol-0.3.3.html#section-157
+</p></div></div>
     </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <a id="isInstanceOf[T0]:Boolean"></a>
@@ -362,6 +331,32 @@ request parameter name. (Netty POST body decoder prohibits &quot;=&quot; in para
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="xitrum.handler.NoRealPipelining#pauseReading" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="pauseReading(channel:io.netty.channel.Channel):Unit"></a>
+      <a id="pauseReading(Channel):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">pauseReading</span><span class="params">(<span name="channel">channel: <span class="extype" name="io.netty.channel.Channel">Channel</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="xitrum.handler.NoRealPipelining#resumeReading" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="resumeReading(channel:io.netty.channel.Channel):Unit"></a>
+      <a id="resumeReading(Channel):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">resumeReading</span><span class="params">(<span name="channel">channel: <span class="extype" name="io.netty.channel.Channel">Channel</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>

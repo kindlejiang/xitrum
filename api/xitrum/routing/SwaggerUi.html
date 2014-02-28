@@ -943,7 +943,7 @@ See also redirectTo.
       <p class="shortcomment cmt">Do not use this to escape JSON, because they are different! For example
 JSON does not escape ' character, while JavaScript does.</p><div class="fullcomment"><div class="comment cmt"><p>Do not use this to escape JSON, because they are different! For example
 JSON does not escape ' character, while JavaScript does. To escape JSON,
-use JSON4S or xitrum.util.Json, e.g xitrum.util.Json.generate(Seq(string)).</p><p>org.apache.commons.lang3.StringEscapeUtils is used internally.
+use xitrum.util.SeriDeseri.toJson(Seq(string)).</p><p>org.apache.commons.lang3.StringEscapeUtils is used internally.
 </p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../view/Js.html" class="extype" name="xitrum.view.Js">Js</a></dd></dl></div>
     </li><li name="xitrum.view.Js#jsForView" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="jsForView:java.io.Serializable"></a>
@@ -1466,15 +1466,15 @@ then calls the layout function.
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../scope/request/RequestEnv.html" class="extype" name="xitrum.scope.request.RequestEnv">RequestEnv</a></dd></dl></div>
     </li><li name="xitrum.scope.request.RequestEnv#requestContentJson" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="requestContentJson[T](implicitm:Manifest[T]):T"></a>
-      <a id="requestContentJson[T](Manifest[T]):T"></a>
+      <a id="requestContentJson[T](implicitm:Manifest[T]):Option[T]"></a>
+      <a id="requestContentJson[T](Manifest[T]):Option[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">requestContentJson</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="m">m: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="xitrum.scope.request.RequestEnv.requestContentJson.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="xitrum.scope.request.RequestEnv.requestContentJson.T">T</span></span>
+        <span class="name">requestContentJson</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="m">m: <span class="extype" name="scala.Predef.Manifest">Manifest</span>[<span class="extype" name="xitrum.scope.request.RequestEnv.requestContentJson.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="xitrum.scope.request.RequestEnv.requestContentJson.T">T</span>]</span>
       </span>
       </h4>
       <p class="shortcomment cmt">Ex: val json = requestContentJson[Map[String, String]]</p><div class="fullcomment"><div class="comment cmt"><p>Ex: val json = requestContentJson[Map[String, String]]</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../scope/request/RequestEnv.html" class="extype" name="xitrum.scope.request.RequestEnv">RequestEnv</a></dd></dl></div>
