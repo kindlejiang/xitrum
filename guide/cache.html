@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Server-side cache &mdash; Xitrum 3.2 documentation</title>
+    <title>Server-side cache &mdash; Xitrum 3.3 documentation</title>
     
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -15,7 +15,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '3.2',
+        VERSION:     '3.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Xitrum 3.2 documentation" href="index.html" />
+    <link rel="top" title="Xitrum 3.3 documentation" href="index.html" />
     <link rel="next" title="I18n" href="i18n.html" />
     <link rel="prev" title="Filters" href="filter.html" /> 
   </head>
@@ -41,7 +41,7 @@
         <li class="right" >
           <a href="filter.html" title="Filters"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Xitrum 3.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Xitrum 3.3 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -88,6 +88,29 @@ class ArticlesShow extends Action {
   }
 }</pre>
 </div>
+<p>The terms &#8220;page cache&#8221; and &#8220;action cache&#8221; came from
+<a class="reference external" href="http://guides.rubyonrails.org/caching_with_rails.html">Ruby on Rails</a>.</p>
+<p>The order of processing a request is designed like this:
+(1) request -&gt; (2) before filter methods -&gt; (3) action&#8217;s execute method -&gt; (4) response</p>
+<p>At the 1st request, Xitrum will cache the response for the time period specified.
+<tt class="docutils literal"><span class="pre">&#64;CachePageMinute(1)</span></tt> or <tt class="docutils literal"><span class="pre">&#64;CacheActionMinute(1)</span></tt> both mean caching for 1 minute.
+Xitrum only caches when the response status is &#8220;200 OK&#8221;. For example, response
+with status &#8220;500 Internal Server Error&#8221; or &#8220;302 Found&#8221; (redirect) will not be cached.</p>
+<p>At the following requests to the same action, if the cached response is still
+within the specified time, Xitrum will just respond the cached response:</p>
+<ul class="simple">
+<li>For page cache, the order is (1) -&gt; (4).</li>
+<li>For action cache, the order is (1) -&gt; (2) -&gt; (4), or just (1) -&gt; (2)
+if one of the before filters return &#8220;false&#8221;.</li>
+</ul>
+<p>So the difference is: For page cache, the before filters are not run.</p>
+<p>Usually, page cache is used when the same response can be used for all users.
+Action cache is used when you want to run a before filter to &#8220;guard&#8221; the cached
+response, like checking if the user has logged in:</p>
+<ul class="simple">
+<li>If the user has logged in, he can use the cached response.</li>
+<li>If the user has not logged in, redirect him to the login page.</li>
+</ul>
 </div>
 <div class="section" id="cache-object">
 <h2>Cache object<a class="headerlink" href="#cache-object" title="Permalink to this headline">¶</a></h2>
@@ -173,7 +196,7 @@ you can config cache engine in one of the following 2 forms, depending on the en
 </div>
 <div class="section" id="how-cache-works">
 <h2>How cache works<a class="headerlink" href="#how-cache-works" title="Permalink to this headline">¶</a></h2>
-<p>Upstream</p>
+<p>Inbound:</p>
 <div class="highlight-python"><pre>               the action response
                should be cached and
 request        the cache already exists?
@@ -182,7 +205,7 @@ request        the cache already exists?
 &lt;---------YES------------+
   respond from cache</pre>
 </div>
-<p>Downstream</p>
+<p>Outbound:</p>
 <div class="highlight-python"><pre>               the action response
                should be cached and
                the cache does not exist?           response
@@ -266,7 +289,7 @@ You can call <tt class="docutils literal"><span class="pre">LinkedHashMap</span>
         <li class="right" >
           <a href="filter.html" title="Filters"
              >previous</a> |</li>
-        <li><a href="index.html">Xitrum 3.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Xitrum 3.3 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
