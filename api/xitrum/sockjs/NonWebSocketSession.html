@@ -50,7 +50,7 @@ See TIMEOUT_CONNECTION and TIMEOUT_HEARTBEAT in NonWebSocketSessions.
         </div><div class="toggleContainer block diagram-container" id="inheritance-diagram-container">
                 <span class="toggle diagram-link">Type Hierarchy</span>
                 <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#diagrams" target="_blank" class="diagram-help">Learn more about scaladoc diagrams</a>
-                <div class="diagram" id="inheritance-diagram"><svg class="class-diagram" id="graph40" viewBox="0.00 0.00 204.00 120.00" height="120pt" width="204pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 116)" class="graph" id="graph1"><polygon points="-4,5 -4,-116 201,-116 201,5 -4,5" stroke="white" fill="white"></polygon><g class="cluster" id="graph2"></g><g class="cluster" id="graph3"></g><!-- node0 --><g class="node this class" id="graph40_0"><a xlink:title="xitrum.sockjs.NonWebSocketSession (this class)" xlink:href="#inheritance-diagram"><polygon points="172,-50 24,-50 24,-24 172,-24 172,-50" stroke="#115f3b" fill="#0a955b"></polygon><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-34.6667" x="56" text-anchor="start">NonWebSocketSession</text><image xlink:href="../../lib/class_diagram.png" width="16px" height="16px" preserveAspectRatio="xMinYMin meet" x="34.0" y="-46.000099999999996" xmlns:xlink="http://www.w3.org/1999/xlink"></image></a></g><!-- node1 --><g class="node trait" id="graph40_1"><a xlink:title="akka.actor.Actor"><polygon points="132,-112 64,-112 64,-86 132,-86 132,-112" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-107" x="74" preserveAspectRatio="xMinYMin meet" height="16px" width="16px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-96.6667" x="96" text-anchor="start">Actor</text></a></g><!-- node1&#45;&gt;node0 --><g class="edge inheritance" id="graph40_1_0"><a xlink:title="NonWebSocketSession is a subtype of Actor"><path d="M98,-80.6463C98,-70.8429 98,-59.003 98,-50.1297" stroke="#d4d4d4" fill="none"></path><polygon points="96.2501,-80.8514 98,-85.8514 99.7501,-80.8514 96.2501,-80.8514" stroke="#d4d4d4" fill="none"></polygon></a></g></g></svg></div>
+                <div class="diagram" id="inheritance-diagram"><svg class="class-diagram" id="graph40" viewBox="0.00 0.00 204.00 120.00" height="120pt" width="204pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 116)" class="graph" id="graph1"><polygon points="-4,5 -4,-116 201,-116 201,5 -4,5" stroke="white" fill="white"></polygon><g class="cluster" id="graph2"></g><g class="cluster" id="graph3"></g><!-- node0 --><g class="node this class" id="graph40_0"><a xlink:title="xitrum.sockjs.NonWebSocketSession (this class)" xlink:href="#inheritance-diagram"><polygon points="172,-50 24,-50 24,-24 172,-24 172,-50" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-45" x="34" preserveAspectRatio="xMinYMin meet" height="16px" width="16px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-34.6667" x="56" text-anchor="start">NonWebSocketSession</text></a></g><!-- node1 --><g class="node trait" id="graph40_1"><a xlink:title="akka.actor.Actor"><polygon points="132,-112 64,-112 64,-86 132,-86 132,-112" stroke="#37657d" fill="#498aad"></polygon><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-96.6667" x="96" text-anchor="start">Actor</text><image xlink:href="../../lib/trait_diagram.png" width="16px" height="16px" preserveAspectRatio="xMinYMin meet" x="74.0" y="-108.0001" xmlns:xlink="http://www.w3.org/1999/xlink"></image></a></g><!-- node1&#45;&gt;node0 --><g class="edge inheritance" id="graph40_1_0"><a xlink:title="NonWebSocketSession is a subtype of Actor"><path d="M98,-80.6463C98,-70.8429 98,-59.003 98,-50.1297" stroke="#d4d4d4" fill="none"></path><polygon points="96.2501,-80.8514 98,-85.8514 99.7501,-80.8514 96.2501,-80.8514" stroke="#d4d4d4" fill="none"></polygon></a></g></g></svg></div>
               </div></div>
         
 
@@ -191,6 +191,71 @@ See TIMEOUT_CONNECTION and TIMEOUT_HEARTBEAT in NonWebSocketSessions.
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="akka.actor.Actor#aroundPostRestart" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="aroundPostRestart(reason:Throwable):Unit"></a>
+      <a id="aroundPostRestart(Throwable):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">aroundPostRestart</span><span class="params">(<span name="reason">reason: <span class="extype" name="scala.Throwable">Throwable</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../akka.html" class="extype" name="akka">akka</a>] </dd><dt>Definition Classes</dt><dd>Actor</dd></dl></div>
+    </li><li name="akka.actor.Actor#aroundPostStop" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="aroundPostStop():Unit"></a>
+      <a id="aroundPostStop():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">aroundPostStop</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../akka.html" class="extype" name="akka">akka</a>] </dd><dt>Definition Classes</dt><dd>Actor</dd></dl></div>
+    </li><li name="akka.actor.Actor#aroundPreRestart" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="aroundPreRestart(reason:Throwable,message:Option[Any]):Unit"></a>
+      <a id="aroundPreRestart(Throwable,Option[Any]):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">aroundPreRestart</span><span class="params">(<span name="reason">reason: <span class="extype" name="scala.Throwable">Throwable</span></span>, <span name="message">message: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Any">Any</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../akka.html" class="extype" name="akka">akka</a>] </dd><dt>Definition Classes</dt><dd>Actor</dd></dl></div>
+    </li><li name="akka.actor.Actor#aroundPreStart" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="aroundPreStart():Unit"></a>
+      <a id="aroundPreStart():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">aroundPreStart</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../akka.html" class="extype" name="akka">akka</a>] </dd><dt>Definition Classes</dt><dd>Actor</dd></dl></div>
+    </li><li name="akka.actor.Actor#aroundReceive" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="aroundReceive(receive:akka.actor.Actor.Receive,msg:Any):Unit"></a>
+      <a id="aroundReceive(akka.actor.Actor.Receive,Any):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">aroundReceive</span><span class="params">(<span name="receive">receive: <span class="extype" name="akka.actor.Actor.Receive">akka.actor.Actor.Receive</span></span>, <span name="msg">msg: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../akka.html" class="extype" name="akka">akka</a>] </dd><dt>Definition Classes</dt><dd>Actor</dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -469,15 +534,15 @@ See TIMEOUT_CONNECTION and TIMEOUT_HEARTBEAT in NonWebSocketSessions.
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Actor</dd></dl></div>
     </li><li name="akka.actor.Actor#sender" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="sender:akka.actor.ActorRef"></a>
-      <a id="sender:ActorRef"></a>
+      <a id="sender():akka.actor.ActorRef"></a>
+      <a id="sender():ActorRef"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier">final </span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">sender</span><span class="result">: <span class="extype" name="akka.actor.ActorRef">ActorRef</span></span>
+        <span class="name">sender</span><span class="params">()</span><span class="result">: <span class="extype" name="akka.actor.ActorRef">ActorRef</span></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Actor</dd></dl></div>
