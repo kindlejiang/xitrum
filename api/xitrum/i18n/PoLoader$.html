@@ -240,6 +240,27 @@
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="xitrum.i18n.PoLoader#get" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="get(language:String):scaposer.Po"></a>
+      <a id="get(String):Po"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">get</span><span class="params">(<span name="language">language: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scaposer.Po">Po</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">For the specified language, this method loads and merges all po files in
+classpath, at i18n/&lt;language&gt;.</p><div class="fullcomment"><div class="comment cmt"><p>For the specified language, this method loads and merges all po files in
+classpath, at i18n/&lt;language&gt;.po. You can store the po files in JAR files,
+at src/main/resources/i18n/&lt;language&gt;.po (compile time), or at
+config/i18n/&lt;language&gt;.po (&quot;config&quot; directory is put to classpath by Xitrum
+at run time, this is convenient if you want to modify po files at run time).</p><p>The result is stored in cache for further fast access. If you want to reload
+the po files, use clear() or remove(language) to clean the cache, then load again.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>Empty Po if there's no po file
+</p></dd></dl></div>
     </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
       <a id="getClass():Class[_]"></a>
@@ -279,27 +300,6 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="xitrum.i18n.PoLoader#load" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="load(language:String):scaposer.Po"></a>
-      <a id="load(String):Po"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">load</span><span class="params">(<span name="language">language: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scaposer.Po">Po</span></span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">For the specified language, this method loads and merges all po files in
-classpath, at i18n/&lt;language&gt;.</p><div class="fullcomment"><div class="comment cmt"><p>For the specified language, this method loads and merges all po files in
-classpath, at i18n/&lt;language&gt;.po. You can store the po files in JAR files,
-at src/main/resources/i18n/&lt;language&gt;.po (compile time), or at
-config/i18n/&lt;language&gt;.po (&quot;config&quot; directory is put to classpath by Xitrum
-at run time, this is convenient if you want to modify po files at run time).</p><p>The result is stored in cache for further fast access. If you want to reload
-the po files, use clear() or remove(language) to clean the cache, then load again.
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>Empty Po if there's no po file
-</p></dd></dl></div>
     </li><li name="xitrum.Log#log" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="log:org.slf4j.Logger"></a>
       <a id="log:Logger"></a>
