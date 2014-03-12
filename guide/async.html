@@ -100,8 +100,9 @@ future.addListener(new ChannelFutureListener {
 </div>
 <div class="section" id="websocket">
 <h2>WebSocket<a class="headerlink" href="#websocket" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><pre>import xitrum.WebSocketAction
+<div class="highlight-python"><pre>import scala.runtime.ScalaRunTime
 import xitrum.annotation.WEBSOCKET
+import xitrum.{WebSocketAction, WebSocketBinary, WebSocketText, WebSocketPing, WebSocketPong}
 
 @WEBSOCKET("echo")
 class EchoWebSocketActor extends WebSocketAction {
@@ -118,8 +119,8 @@ class EchoWebSocketActor extends WebSocketAction {
         log.info("onTextMessage: " + text)
         respondWebSocketText(text.toUpperCase)
 
-      case WebSocketBinary(bytes) {
-        log.info("onBinaryMessage: " + bytes)
+      case WebSocketBinary(bytes) =&gt;
+        log.info("onBinaryMessage: " + ScalaRunTime.stringOf(bytes))
         respondWebSocketBinary(bytes)
 
       case WebSocketPing =&gt;
