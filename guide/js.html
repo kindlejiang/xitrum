@@ -111,8 +111,8 @@ Please read about it to know how to parse and generate JSON.</p>
 
 case class Person(name: String, age: Int, phone: Option[String])
 val person1 = Person("Jack", 20, None)
-val json    = SeriDeseri.toJson(person)
-val person2 = SeriDeseri.fromJson(json)</pre>
+val json    = SeriDeseri.toJson(person1)
+val person2 = SeriDeseri.fromJson[Person](json)</pre>
 </div>
 <p>To respond JSON:</p>
 <div class="highlight-python"><pre>val scalaData = List(1, 2, 3)  // An example
