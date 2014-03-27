@@ -240,6 +240,7 @@ trait NonWebSocketSessionReceiverActorAction extends NonWebSocketSessionActorAct
     // Try to lookup first, then create later
     val props = Props(new NonWebSocketSession(Some(self), pathPrefix, this))
     SockJsAction.actorRegistry ! Registry.Register(sessionId, props)
+
     context.become({
       case Registry.Found(`sessionId`, actorRef) =>
         nonWebSocketSession = actorRef
@@ -813,12 +814,25 @@ class WebSocketPOST extends SockJsAction with SkipCsrfCheck {
 class WebSocket extends WebSocketAction with ServerIdSessionIdValidator with SockJsPrefix {
   def nLastTokensToRemoveFromPathInfo = 3
 
-  private[this] var sockJsActorRef: ActorRef = _
+  private[this] var sockJsActorRefo: Option[ActorRef] = None
 
   def execute() {
-    sockJsActorRef = Config.routes.sockJsRouteMap.createSockJsAction(pathPrefix)
-    respondWebSocketText("o")
-    sockJsActorRef ! (self, currentAction)
+    respondWebSocketText("o").addListener(new ChannelFutureListener {
+      def operationComplete(future: ChannelFuture) {
+        // This actor will be stopped when the connection is closed
+        if (future.isSuccess) startSession() else channel.close()
+      }
+    })
+  }
+
+  override def postStop() {
+    sockJsActorRefo.foreach(Config.actorSystem.stop)
+    super.postStop()
+  }
+
+  private def startSession() {
+    val ref = Config.routes.sockJsRouteMap.createSockJsAction(pathPrefix)
+    context.watch(ref)
 
     context.setReceiveTimeout(SockJsAction.TIMEOUT_HEARTBEAT)
     context.become {
@@ -842,7 +856,7 @@ class WebSocket extends WebSocketAction with ServerIdSessionIdValidator with Soc
               respondWebSocketClose()
 
             case Some(messages) =>
-              messages.foreach { msg => sockJsActorRef ! SockJsText(msg) }
+              messages.foreach { msg => ref ! SockJsText(msg) }
           }
         }
 
@@ -851,18 +865,29 @@ class WebSocket extends WebSocketAction with ServerIdSessionIdValidator with Soc
         respondWebSocketText("a" + json)
 
       case CloseFromHandler =>
-        respondWebSocketText("c[3000,\"Go away!\"]").addListener(new ChannelFutureListener {
-          def operationComplete(f: ChannelFuture) { respondWebSocketClose() }
-        })
+        context.unwatch(ref)
+        Config.actorSystem.stop(ref)
+        onHandlerStop()
+
+      case Terminated(`ref`) =>
+        onHandlerStop()
 
       case _ =>
         // Ignore all others
     }
+
+    sockJsActorRefo = Some(ref)
+    ref ! (self, currentAction)
   }
 
-  override def postStop() {
-    if (sockJsActorRef != null) Config.actorSystem.stop(sockJsActorRef)
-    super.postStop()
+  private def onHandlerStop() {
+    sockJsActorRefo = None
+    respondWebSocketText("c[3000,\"Go away!\"]").addListener(new ChannelFutureListener {
+      def operationComplete(future: ChannelFuture) {
+        // This actor will be stopped when the connection is closed
+        if (future.isSuccess) respondWebSocketClose() else channel.close()
+      }
+    })
   }
 }
 
@@ -870,29 +895,41 @@ class WebSocket extends WebSocketAction with ServerIdSessionIdValidator with Soc
 class RawWebSocket extends WebSocketAction with ServerIdSessionIdValidator with SockJsPrefix {
   def nLastTokensToRemoveFromPathInfo = 1
 
-  private[this] var sockJsActorRef: ActorRef = _
+  private[this] var sockJsActorRefo: Option[ActorRef] = None
 
   def execute() {
-    sockJsActorRef = Config.routes.sockJsRouteMap.createSockJsAction(pathPrefix)
-    sockJsActorRef ! (self, currentAction)
+    val ref = Config.routes.sockJsRouteMap.createSockJsAction(pathPrefix)
+    context.watch(ref)
 
     context.become {
       case WebSocketText(text) =>
-        sockJsActorRef ! SockJsText(text)
+        ref ! SockJsText(text)
 
       case MessageFromHandler(text) =>
         respondWebSocketText(text)
 
       case CloseFromHandler =>
-        respondWebSocketClose()
+        context.unwatch(ref)
+        Config.actorSystem.stop(ref)
+
+      case Terminated(`ref`) =>
+        onHandlerStop()
 
       case _ =>
         // Ignore all others
     }
+
+    sockJsActorRefo = Some(ref)
+    ref ! (self, currentAction)
   }
 
   override def postStop() {
-    if (sockJsActorRef != null) Config.actorSystem.stop(sockJsActorRef)
+    sockJsActorRefo.foreach(Config.actorSystem.stop)
     super.postStop()
+  }
+
+  private def onHandlerStop() {
+    sockJsActorRefo = None
+    respondWebSocketClose()
   }
 }

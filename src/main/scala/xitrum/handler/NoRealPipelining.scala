@@ -22,12 +22,12 @@ import io.netty.handler.codec.http.{HttpHeaders, HttpRequest, HttpResponse}
  */
 object NoRealPipelining {
   def pauseReading(channel: Channel) {
-    channel.config.setAutoRead(false)
+    //channel.config.setAutoRead(false)
   }
 
   def resumeReading(channel: Channel) {
-    channel.config.setAutoRead(true)
-    channel.read()
+    //channel.config.setAutoRead(true)
+    //channel.read()
   }
 
   /**

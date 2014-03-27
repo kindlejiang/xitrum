@@ -51,7 +51,7 @@ object NonWebSocketSession {
 class NonWebSocketSession(var receiverCliento: Option[ActorRef], pathPrefix: String, action: Action) extends Actor {
   import NonWebSocketSession._
 
-  private[this] var sockJsActorRef: ActorRef = _
+  private[this] var sockJsActorRefo: Option[ActorRef] = None
 
   // Messages from handler to client are buffered here
   private[this] val bufferForClientSubscriber = ArrayBuffer.empty[String]
@@ -68,9 +68,11 @@ class NonWebSocketSession(var receiverCliento: Option[ActorRef], pathPrefix: Str
   override def preStart() {
     // Attach sockJsActorRef to the current actor, so that sockJsActorRef is
     // automatically stopped when the current actor stops
-    sockJsActorRef = Config.routes.sockJsRouteMap.createSockJsAction(context, pathPrefix)
-    context.watch(sockJsActorRef)
-    sockJsActorRef ! (self, action)
+    val ref = Config.routes.sockJsRouteMap.createSockJsAction(context, pathPrefix)
+    context.watch(ref)
+
+    sockJsActorRefo = Some(ref)
+    ref ! (self, action)
 
     lastSubscribedAt = System.currentTimeMillis()
 
@@ -86,8 +88,10 @@ class NonWebSocketSession(var receiverCliento: Option[ActorRef], pathPrefix: Str
 
   private def unwatchAndStop() {
     receiverCliento.foreach(context.unwatch)
-    context.unwatch(sockJsActorRef)
-    context.stop(sockJsActorRef)
+    sockJsActorRefo.foreach { sockJsActorRef =>
+      context.unwatch(sockJsActorRef)
+      context.stop(sockJsActorRef)
+    }
     context.stop(self)
   }
 
@@ -100,7 +104,7 @@ class NonWebSocketSession(var receiverCliento: Option[ActorRef], pathPrefix: Str
     //
     // See also AbortFromReceiverClient below.
     case Terminated(monitored) =>
-      if (monitored == sockJsActorRef && !closed) {
+      if (sockJsActorRefo == Some(monitored) && !closed) {
         // See CloseFromHandler
         unwatchAndStop()
       } else if (receiverCliento == Some(monitored)){
@@ -146,7 +150,9 @@ class NonWebSocketSession(var receiverCliento: Option[ActorRef], pathPrefix: Str
       }
 
     case MessagesFromSenderClient(messages) =>
-      if (!closed) messages.foreach { msg => sockJsActorRef ! SockJsText(msg) }
+      sockJsActorRefo.foreach { sockJsActorRef =>
+        if (!closed) messages.foreach { msg => sockJsActorRef ! SockJsText(msg) }
+      }
 
     case MessageFromHandler(message) =>
       if (!closed) {

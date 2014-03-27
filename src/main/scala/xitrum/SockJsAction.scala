@@ -39,10 +39,7 @@ trait SockJsAction extends Actor with Action {
   }
 
   def respondSockJsClose() {
-    // sessionActorRef will stop this actor when it stops.
-    //
-    // For non-WebSocket session, until the timeout occurs, the server must serve
-    // the close message.
+    // sessionActorRef will stop this actor
     sessionActorRef ! CloseFromHandler
   }
 }
