@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>HOWTO &mdash; Xitrum 3.4 documentation</title>
+    <title>HOWTO &mdash; Xitrum 3.6 documentation</title>
     
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -15,7 +15,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '3.4',
+        VERSION:     '3.6',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Xitrum 3.4 documentation" href="index.html" />
+    <link rel="top" title="Xitrum 3.6 documentation" href="index.html" />
     <link rel="next" title="Netty handlers" href="handler.html" />
     <link rel="prev" title="Clustering with Akka and Hazelcast" href="cluster.html" /> 
   </head>
@@ -41,7 +41,7 @@
         <li class="right" >
           <a href="cluster.html" title="Clustering with Akka and Hazelcast"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Xitrum 3.4 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Xitrum 3.6 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -110,14 +110,27 @@ else
 <div class="section" id="manipulate-collected-routes">
 <h2>Manipulate collected routes<a class="headerlink" href="#manipulate-collected-routes" title="Permalink to this headline">¶</a></h2>
 <p>Xitrum automatically collect routes on startup.
-If you want to manipulate the routes, you can do like this:</p>
+If you want to manipulate the routes, you can use
+<a class="reference external" href="http://ngocdaothanh.github.io/xitrum/api/index.html#xitrum.routing.RouteCollection">xitrum.Config.routes</a>.</p>
+<p>Example:</p>
 <div class="highlight-python"><pre>import xitrum.{Config, Server}
 
 object Boot {
   def main(args: Array[String]) {
     // You can modify routes before starting the server
     val routes = Config.routes
-    routes.remove[xitrum.js]()
+
+    // Remove routes to an action by its class
+    routes.removeByClass[MyClass]()
+
+    if (demoVersion) {
+      // Remove routes to actions by a prefix
+      routes.removeByPrefix("/premium/features")
+
+      // This also works
+      routes.removeByPrefix("premium/features")
+    }
+
     ...
 
     Server.start()
@@ -349,9 +362,10 @@ val html = Markdown("input")</pre>
 <p>You can register callback(s) for
 <a class="reference external" href="http://docs.oracle.com/javase/7/docs/api/java/nio/file/StandardWatchEventKinds.html">StandardWatchEventKinds</a>
 on files or directories.</p>
-<div class="highlight-python"><pre>import xitrum.util.FileMonitor
+<div class="highlight-python"><pre>import java.nio.file.Paths
+import xitrum.util.FileMonitor
 
-val target = java.nio.file.Paths.get("path_relative_to_application_root").toAbsolutePath
+val target = Paths.get("absolute_path_or_path_relative_to_application_directory").toAbsolutePath
 FileMonitor.monitor(FileMonitor.MODIFY, target, { path =&gt;
   // Do some callback with path
   println(s"File modified: $path")
@@ -360,7 +374,7 @@ FileMonitor.monitor(FileMonitor.MODIFY, target, { path =&gt;
   FileMonitor.unmonitor(FileMonitor.MODIFY, target)
 })</pre>
 </div>
-<p>Under the hood, <tt class="docutils literal"><span class="pre">xitrum.util.FileMonitor</span></tt> uses
+<p>Under the hood, <tt class="docutils literal"><span class="pre">FileMonitor</span></tt> uses
 <a class="reference external" href="https://github.com/lloydmeta/schwatcher">Schwatcher</a>.</p>
 </div>
 </div>
@@ -445,7 +459,7 @@ FileMonitor.monitor(FileMonitor.MODIFY, target, { path =&gt;
         <li class="right" >
           <a href="cluster.html" title="Clustering with Akka and Hazelcast"
              >previous</a> |</li>
-        <li><a href="index.html">Xitrum 3.4 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Xitrum 3.6 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
