@@ -348,28 +348,28 @@ Actions have to implement this method.
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../action/Filter.html" class="extype" name="xitrum.action.Filter">Filter</a></dd></dl></div>
     </li><li name="xitrum.scope.session.Csrf#antiCsrfInput" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="antiCsrfInput:String"></a>
-      <a id="antiCsrfInput:String"></a>
+      <a id="antiCsrfInput:scala.xml.Elem"></a>
+      <a id="antiCsrfInput:Elem"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">lazy val</span>
       </span>
       <span class="symbol">
-        <span class="name">antiCsrfInput</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+        <span class="name">antiCsrfInput</span><span class="result">: <span class="extype" name="scala.xml.Elem">Elem</span></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../scope/session/Csrf.html" class="extype" name="xitrum.scope.session.Csrf">Csrf</a></dd></dl></div>
     </li><li name="xitrum.scope.session.Csrf#antiCsrfMeta" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="antiCsrfMeta:String"></a>
-      <a id="antiCsrfMeta:String"></a>
+      <a id="antiCsrfMeta:scala.xml.Elem"></a>
+      <a id="antiCsrfMeta:Elem"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">lazy val</span>
       </span>
       <span class="symbol">
-        <span class="name">antiCsrfMeta</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+        <span class="name">antiCsrfMeta</span><span class="result">: <span class="extype" name="scala.xml.Elem">Elem</span></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../scope/session/Csrf.html" class="extype" name="xitrum.scope.session.Csrf">Csrf</a></dd></dl></div>
@@ -680,7 +680,7 @@ to let the user in.
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="xitrum.sockjs.SockJsAction#closeWithLastChunk" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="xitrum.sockjs.NonWebSocketSessionActorAction#closeWithLastChunk" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="closeWithLastChunk():Unit"></a>
       <a id="closeWithLastChunk():Unit"></a>
       <h4 class="signature">
@@ -692,7 +692,7 @@ to let the user in.
         <span class="name">closeWithLastChunk</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="SockJsAction.html" class="extype" name="xitrum.sockjs.SockJsAction">SockJsAction</a></dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd></dl></div>
     </li><li name="akka.actor.Actor#context" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="context:akka.actor.ActorContext"></a>
       <a id="context:ActorContext"></a>
@@ -1996,7 +1996,7 @@ in classpath.
 If Content-Type header is not set, it is guessed from the file name.
 </p></div><dl class="paramcmts block"><dt class="param">path</dt><dd class="cmt"><p>Relative to an entry in classpath, without leading &quot;/&quot;
 </p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../view/Responder.html" class="extype" name="xitrum.view.Responder">Responder</a></dd></dl></div>
-    </li><li name="xitrum.sockjs.SockJsAction#respondStreamingWithLimit" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="xitrum.sockjs.NonWebSocketSessionActorAction#respondStreamingWithLimit" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="respondStreamingWithLimit(text:String,isEventSource:Boolean):Boolean"></a>
       <a id="respondStreamingWithLimit(String,Boolean):Boolean"></a>
       <h4 class="signature">
@@ -2013,7 +2013,7 @@ bytes was sent, in order to force client to GC and reconnect.</p><div class="ful
 bytes was sent, in order to force client to GC and reconnect. The server doesn't have
 to send &quot;c&quot; frame.
 </p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>false if the channel will be closed when the channel write completes
-</p></dd></dl><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="SockJsAction.html" class="extype" name="xitrum.sockjs.SockJsAction">SockJsAction</a></dd></dl></div>
+</p></dd></dl><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd></dl></div>
     </li><li name="xitrum.view.Responder#respondText" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="respondText(text:Any,fallbackContentType:String,convertXmlToXhtml:Boolean):io.netty.channel.ChannelFuture"></a>
       <a id="respondText(Any,String,Boolean):ChannelFuture"></a>
@@ -2761,15 +2761,15 @@ http://www.ne.jp/asahi/hishidama/home/tech/scala/xml.html
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../action/Net.html" class="extype" name="xitrum.action.Net">Net</a></dd></dl></div>
     </li><li name="xitrum.view.Flash#xitrumCss" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="xitrumCss:String"></a>
-      <a id="xitrumCss:String"></a>
+      <a id="xitrumCss:scala.xml.Elem"></a>
+      <a id="xitrumCss:Elem"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">lazy val</span>
       </span>
       <span class="symbol">
-        <span class="name">xitrumCss</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+        <span class="name">xitrumCss</span><span class="result">: <span class="extype" name="scala.xml.Elem">Elem</span></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../view/Flash.html" class="extype" name="xitrum.view.Flash">Flash</a></dd></dl></div>
